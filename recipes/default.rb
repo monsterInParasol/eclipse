@@ -44,6 +44,7 @@ if not node['eclipse']['plugins'].empty?
     execute "eclipse plugin install" do
       command "eclipse -application org.eclipse.equinox.p2.director -noSplash -repository #{repo} -installIUs #{plugins}"
       action :run
+      not_if "eclipse -application org.eclipse.equinox.p2.director -noSplash -listInstalledRoots | grep #{plugins}"
     end
   end
 end
