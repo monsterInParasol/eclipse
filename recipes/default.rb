@@ -35,6 +35,7 @@ ark "eclipse" do
   has_binaries ['eclipse']
   append_env_path true
   action :install
+  not_if 'which eclipse'
 end
 
 if not node['eclipse']['plugins'].empty?
