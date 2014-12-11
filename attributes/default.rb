@@ -14,6 +14,8 @@ default['eclipse']['plugins'] = [{"http://download.eclipse.org/releases/kepler"=
 
 default['eclipse']['url'] = ''
 
+default['eclipse']['default_user'] = 'ubuntu'
+
 case node['platform_family']
 when "rhel", "fedora", 'debian'
   default['eclipse']['os'] = 'linux-gtk'

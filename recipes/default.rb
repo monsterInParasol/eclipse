@@ -49,3 +49,20 @@ if not node['eclipse']['plugins'].empty?
     end
   end
 end
+
+file 'create eclipse shortcut' do
+  default_user = node['eclipse']['default_user']
+  user default_user
+  path "/home/#{default_user}/Desktop/eclipse.desktop"
+  content <<-EOH
+[Desktop Entry]
+Version=1.0
+Name=eclipse
+Comment=Eclipse
+Exec=/usr/local/eclipse-luna/eclipse
+Icon=/usr/local/eclipse-luna/icon.xpm
+Terminal=false
+Type=Application
+Categories=Utility;Application;
+  EOH
+end
